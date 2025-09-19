@@ -1,4 +1,35 @@
-// Countdown (läuft nur, wenn #countdown existiert)
+// --- I18N dictionary (lass deinen bisherigen Inhalt) ---
+const i18n = { /* ... wie gehabt ... */ };
+
+// Sprache aus localStorage lesen (Fallback 'de')
+let lang = localStorage.getItem('lang') || 'de';
+
+function applyLang(){
+  // wende Übersetzungen auf alle data-i18n Elemente an
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const k = el.getAttribute('data-i18n');
+    const v = (i18n[lang] && i18n[lang][k]);
+    if (v) el.textContent = v;
+  });
+}
+
+function setLang(next){
+  lang = next;
+  localStorage.setItem('lang', lang);
+  applyLang();
+}
+
+// globaler Click-Handler: Header wird dynamisch geladen, daher delegieren
+document.addEventListener('click', (e)=>{
+  if (e.target && e.target.id === 'langToggle') {
+    setLang(lang === 'de' ? 'en' : 'de');
+  }
+});
+
+// initial anwenden
+applyLang();
+
+// --- Countdown (läuft nur, wenn #countdown existiert) ---
 const weddingDate = new Date('2026-07-12T13:00:00');
 function tick(){
   const el = document.getElementById('countdown');
@@ -11,20 +42,3 @@ function tick(){
   el.textContent = `Countdown: ${days}d ${hrs}h ${mins}m`;
 }
 setInterval(tick, 30000); tick();
-
-// Mini-I18N
-const i18n = { /* ... dein bestehendes Objekt ... */ };
-let lang = 'de';
-function applyLang(){
-  document.querySelectorAll('[data-i18n]').forEach(el=>{
-    const k = el.getAttribute('data-i18n');
-    el.textContent = (i18n[lang] && i18n[lang][k]) || el.textContent;
-  });
-}
-applyLang();
-document.addEventListener('click', (e)=>{
-  if (e.target && e.target.id === 'langToggle') {
-    lang = lang === 'de' ? 'en' : 'de';
-    applyLang();
-  }
-});
