@@ -9,59 +9,7 @@
   <meta property="og:description" content="Papierlos einladen, Zusagen sammeln, Infos teilen und Fotos einsammeln – alles auf einer Seite." />
   <meta name="theme-color" content="#0b1220" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>💍</text></svg>">
-  <style>
-    :root{--bg:#0b1220;--fg:#e5e7eb;--muted:#9ca3af;--accent:#f472b6;--card:#111827;--line:#1f2937;--ok:#34d399}
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}
-    a{color:#93c5fd}
-    header{position:sticky;top:0;backdrop-filter:saturate(140%) blur(8px);background:rgba(11,18,32,.7);border-bottom:1px solid var(--line);z-index:50}
-    nav{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;padding:10px 16px}
-    .brand{display:flex;align-items:center;gap:10px}
-    .logo{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#f472b6,#60a5fa);display:grid;place-items:center}
-    .nav-links{display:flex;gap:10px;flex-wrap:wrap}
-    .btn{display:inline-block;padding:10px 16px;border-radius:12px;background:var(--accent);color:#120a16;font-weight:700;border:1px solid #be185d}
-    .btn.secondary{background:transparent;color:var(--fg);border-color:#374151}
-    .btn.ghost{background:transparent;border-color:transparent;color:#cbd5e1}
-    .container{max-width:1200px;margin:0 auto;padding:0 16px}
-    .hero{padding:48px 0;border-bottom:1px solid var(--line)}
-    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center}
-    h1{font-size:clamp(28px,4vw,44px);line-height:1.15;margin:0 0 12px}
-    .lead{color:var(--muted)}
-    .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px}
-    .grid{display:grid;gap:16px}
-    .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .badge{display:inline-block;padding:6px 10px;border:1px solid #374151;border-radius:999px;background:#0b1324;color:#cbd5e1;font-size:12px}
-    .tab{padding:8px 12px;border:1px solid #374151;border-radius:999px;cursor:pointer}
-    .tab[aria-selected="true"]{background:#0b1a33;border-color:#1f3b64}
-    section{scroll-margin-top:70px}
-    details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px}
-    details+details{margin-top:12px}
-    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    .kpi{display:flex;align-items:center;gap:10px}
-    .kpi .dot{width:10px;height:10px;border-radius:50%;background:var(--ok)}
-    .muted{color:var(--muted)}
-    .hidden{display:none}
-    .start-only{} /* marker class */
-    footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:14px}
-    .footer-grid{display:grid;grid-template-columns:1fr auto;align-items:center}
-    @media (max-width:960px){.hero-grid{grid-template-columns:1fr}.feature-grid{grid-template-columns:1fr 1fr}.two-col{grid-template-columns:1fr}}
-    input, textarea, select {
-      width: 100%;
-      padding: 10px 12px;
-      border: 1px solid #374151;
-      border-radius: 10px;
-      background: #0b1324;
-      color: #e5e7eb;
-    }
-    label { display:block; }
-        h2, h3, p {
-      margin-left: 0;
-      margin-right: 0;
-      padding-left: 8px;
-      padding-right: 8px;
-    }
-
-  </style>
+  <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 <body>
 <header>
@@ -311,98 +259,8 @@
   </div>
 </footer>
 
-<script>
-// Tabs & Sichtbarkeiten
-const tabs = document.querySelectorAll('.tab[data-target]');
-const sections = ['#start','#beispiel','#kontakt'].map(id=>document.querySelector(id));
-function show(id){
-  sections.forEach(s=>s.classList.toggle('hidden', '#'+s.id!==id));
-  tabs.forEach(t=>t.setAttribute('aria-selected', t.dataset.target===id));
-  // Nur auf Start die start-only Sections einblenden
-  document.querySelectorAll('.start-only').forEach(el=>{
-    el.classList.toggle('hidden', id!=='#start');
-  });
-}
-tabs.forEach(t=>t.addEventListener('click',()=>show(t.dataset.target)));
+<script src="/assets/js/main.js" defer></script>
 
-// Countdown (Demo)
-const date = new Date('2026-07-12T13:00:00');
-function tick(){
-  const el=document.getElementById('countdown'); if(!el) return;
-  const d=date - new Date(); if(d<=0){el.textContent='Heute ist es so weit!';return}
-  const days=Math.floor(d/86400000),hrs=Math.floor(d%86400000/3600000),mins=Math.floor(d%3600000/60000);
-  el.textContent=`Countdown: ${days}d ${hrs}h ${mins}m`;
-}
-setInterval(tick, 30000); tick();
-
-// RSVP via mailto (später Formspree/Netlify Forms)
-/* function handleRSVP(e){
-  e.preventDefault();
-  const data=Object.fromEntries(new FormData(e.target).entries());
-  const subject=encodeURIComponent('RSVP zur Hochzeit');
-  const body=encodeURIComponent(
-`Name: ${data.name}
-E-Mail: ${data.email}
-Personen: ${data.guests}
-Namen: ${data.guest_names}
-Allergien: ${data.allergies}
-Kinder: ${data.kids}`
-  );
-  const mail=`mailto:brautpaar@example.com?subject=${subject}&body=${body}`;
-  document.getElementById('rsvpMsg').textContent='Öffne E-Mail Programm…';
-  window.location.href=mail;
-}
-
-// Kontakt via mailto
-function handleContact(e){
-  e.preventDefault();
-  const data=Object.fromEntries(new FormData(e.target).entries());
-  const subject=encodeURIComponent('Angebotsanfrage Hochzeitswebsite');
-  const body=encodeURIComponent(
-`Name: ${data.cname}
-E-Mail: ${data.cemail}
-Datum: ${data.cdate}
-Paket: ${data.cplan}
-Nachricht: ${data.cmsg}`
-  );
-  const mail=`mailto:info@hochzeitsweb.de?subject=${subject}&body=${body}`;
-  document.getElementById('contactMsg').textContent='Öffne E-Mail Programm…';
-  window.location.href=mail;
-} */
-
-// Mini-I18N (rudimentär; Ausbau später)
-const i18n = { de:{
-  hero_title:'Die papierlose Einladung für euren schönsten Tag.',
-  hero_lead:'Versendet eine stilvolle Website statt Papier: mit RSVP-Formular, Tagesablauf, Locations, Fotogalerie & mehr – mobiloptimiert, schnell und mehrsprachig.',
-  cta_demo:'Beispiel ansehen', cta_offer:'Angebot anfragen',
-  badge_gallery:'Fotogalerie & Upload', badge_languages:'Mehrsprachig', badge_fast:'Schnell & mobil', badge_domain:'Individuelle Subdomain',
-  kpi_paper:'Papier sparen', kpi_paper_sub:'Einladung, Infos & Dankesmail digital',
-  kpi_rsvp:'Schnelle Rückmeldungen', kpi_rsvp_sub:'Gäste sagen direkt per Formular zu',
-  kpi_gallery:'Alle Fotos an einem Ort', kpi_gallery_sub:'Dropbox/Drive-Anbindung möglich',
-  offer_title:'Was eure Seite kann'
-}, en:{
-  hero_title:'The paperless invitation for your big day.',
-  hero_lead:'Send a beautiful website instead of paper: RSVP, schedule, venues, photo gallery & more – mobile-optimized, fast, multilingual.',
-  cta_demo:'View example', cta_offer:'Request offer',
-  badge_gallery:'Photo gallery & uploads', badge_languages:'Multilingual', badge_fast:'Fast & mobile', badge_domain:'Custom subdomain',
-  kpi_paper:'Save paper', kpi_paper_sub:'Invites, info & thank-you emails go digital',
-  kpi_rsvp:'Fast RSVPs', kpi_rsvp_sub:'Guests confirm via form',
-  kpi_gallery:'All photos in one place', kpi_gallery_sub:'Dropbox/Drive supported',
-  offer_title:'What your site provides'
-}};
-let lang='de';
-function applyLang(){
-  document.querySelectorAll('[data-i18n]').forEach(el=>{
-    const k=el.getAttribute('data-i18n'); el.textContent=(i18n[lang]&&i18n[lang][k])||el.textContent;
-  })
-}
-applyLang();
-document.getElementById('langToggle').addEventListener('click',()=>{lang=lang==='de'?'en':'de';applyLang();});
-document.getElementById('year').textContent=new Date().getFullYear();
-
-// Initialzustand
-show('#start');
-</script>
 <!-- Hidden blueprints for Netlify parser (stay invisible) -->
 <div style="display:none !important;">
   <form name="kontakt" netlify netlify-honeypot="bot-field">
