@@ -12,20 +12,8 @@
   <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 <body>
-<header>
-  <nav>
-    <div class="brand">
-      <div class="logo">💍</div>
-      <strong id="brand">Hochzeitswebsite</strong>
-    </div>
-    <div class="nav-links">
-      <button class="tab" data-target="#start" aria-selected="true">Start</button>
-      <button class="tab" data-target="#beispiel">Beispiel</button>
-      <button class="tab" data-target="#kontakt">Kontakt</button>
-      <button class="tab ghost" id="langToggle" title="Sprache wechseln">DE/EN</button>
-    </div>
-  </nav>
-</header>
+
+<div id="site-header"></div>
 
 <main>
   <!-- START -->
@@ -35,8 +23,8 @@
         <h1 data-i18n="hero_title">Die papierlose Einladung für euren schönsten Tag.</h1>
         <p class="lead" data-i18n="hero_lead">Versendet eine stilvolle Website statt Papier: mit RSVP-Formular, Tagesablauf, Locations, Fotogalerie & mehr – mobiloptimiert, schnell und mehrsprachig.</p>
         <div style="display:flex;gap:10px;margin:12px 0 8px">
-          <button class="btn" onclick="show('#beispiel')" data-i18n="cta_demo">Beispiel ansehen</button>
-          <button class="btn secondary" onclick="show('#kontakt')" data-i18n="cta_offer">Angebot anfragen</button>
+          <a class="btn" href="/beispiel.html" data-i18n="cta_demo">Beispiel ansehen</a>
+          <a class="btn secondary" href="/kontakt.html" data-i18n="cta_offer">Angebot anfragen</a>
         </div>
         <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px">
           <span class="badge">RSVP</span>
@@ -97,183 +85,13 @@
     </div>
     <p class="muted" style="margin-top:8px">Hinweis: Preise/Beauftragung sind Platzhalter – diesen Abschnitt könnt ihr an euer Angebotsmodell anpassen.</p>
   </section>
-
-  <!-- BEISPIEL -->
-  <section id="beispiel" class="container hidden" style="padding:28px 0;border-bottom:1px solid var(--line)">
-    <div class="two-col">
-      <div class="grid">
-        <h2>Beispielseite (für Gäste)</h2>
-        <div class="card">
-          <h3>Save the Date</h3>
-          <p class="muted">Haltet euch den <strong>12. Juli 2026</strong> frei! Details folgen hier auf der Website.</p>
-          <div id="countdown" class="badge">Countdown: –:–:–</div>
-        </div>
-        <div class="card">
-          <h3>Tagesablauf</h3>
-          <ul class="muted">
-            <li>13:00 – Trauung (Stadtkirche)</li>
-            <li>14:30 – Sektempfang (Kirchplatz)</li>
-            <li>16:30 – Fotos & Anreise Location</li>
-            <li>18:00 – Dinner & Programm</li>
-            <li>21:30 – Eröffnungstanz & Party</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Locations</h3>
-          <details open>
-            <summary>Kirche / Rathaus</summary>
-            <p class="muted">Musterstraße 1 · 12345 Musterstadt · Parken in P-Haus Mitte</p>
-          </details>
-          <details>
-            <summary>Feier-Location</summary>
-            <p class="muted">Alte Mühle · Shuttle ab 16:00 Uhr</p>
-          </details>
-          <details>
-            <summary>Übernachtung</summary>
-            <p class="muted">Hotel Sonne (Abrufkontingent „Hochzeit Müller“) · Weitere Hotels in Laufnähe</p>
-          </details>
-        </div>
-        <div class="card">
-          <h3>Trauzeugen</h3>
-          <div class="two-col">
-            <div>
-              <strong>Lisa Beispiel</strong>
-              <div class="muted">Kontakt: <a href="mailto:lisa@example.com">lisa@example.com</a></div>
-            </div>
-            <div>
-              <strong>Max Beispiel</strong>
-              <div class="muted">Kontakt: <a href="mailto:max@example.com">max@example.com</a></div>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Lovestory & Lieblingsdinge</h3>
-          <p class="muted">Wir lernten uns 2018 kennen …</p>
-          <p class="muted"><em>Lieblingszitat:</em> „All of me loves all of you.“</p>
-          <p class="muted"><em>Lieblingslied:</em> John Legend – All of Me</p>
-        </div>
-        <div class="card">
-          <h3>Geschenkwünsche</h3>
-          <p class="muted">Ihr macht uns mit eurer Anwesenheit das größte Geschenk. Wer trotzdem etwas beisteuern möchte, findet hier eine kleine Wunschliste.</p>
-          <ul class="muted">
-            <li><a href="#">Beitrag zur Reisekasse</a> – <span class="badge">Reservieren</span></li>
-            <li><a href="#">Küchenmaschine</a> – <span class="badge">Frei</span></li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>FAQ</h3>
-          <details>
-            <summary>Dresscode?</summary>
-            <p class="muted">Sommerlich-festlich. Bitte keine Weißtöne.</p>
-          </details>
-          <details>
-            <summary>Kinder willkommen?</summary>
-            <p class="muted">Ja, es gibt eine Spielecke und Kinderessen.</p>
-          </details>
-          <details>
-            <summary>Fotos & Galerie</summary>
-            <p class="muted">Nach der Feier könnt ihr <a href="#" title="Dropbox/Drive Upload">hier</a> eure Fotos hochladen.</p>
-          </details>
-        </div>
-      </div>
-
-      <div class="grid">
-        <h2>RSVP</h2>
-        <form name="rsvp" method="POST" netlify netlify-honeypot="bot-field" action="/success.html" class="card">
-          <input type="hidden" name="form-name" value="rsvp">
-          <div aria-hidden="true" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;">
-            <label>Leave this field empty: <input name="bot-field"></label>
-          </div>
-        
-          <label>Voller Name<br><input name="name" required placeholder="Vor- und Nachname" style="width:100%"></label><br>
-          <label>E-Mail<br><input type="email" name="email" required placeholder="name@mail.de" style="width:100%"></label><br>
-          <label>Personen gesamt (#)<br><input type="number" min="1" name="guests" required value="1" style="width:100%"></label><br>
-          <label>Namen der Gäste<br><textarea name="guest_names" rows="3" placeholder="z. B. Alex, Janine" style="width:100%"></textarea></label><br>
-          <label>Allergien/Unverträglichkeiten<br><textarea name="allergies" rows="2" placeholder="z. B. glutenfrei" style="width:100%"></textarea></label><br>
-          <label>Anzahl Kinder (#)<br><input type="number" min="0" name="kids" value="0" style="width:100%"></label><br>
-        
-          <button class="btn" type="submit">Zusage senden</button>
-        </form>
-        
-        <h2>Infoboxen (für euch erklärt)</h2>
-        <details class="card" open>
-          <summary><strong>Save the Date</strong> – kurze Ankündigung frühzeitig</summary>
-          <p class="muted">Eigene Sektion mit Datum & kleinem Text. Optional als separater Link (z. B. <code>euer-name.site/savethedate</code>).</p>
-        </details>
-        <details class="card">
-          <summary><strong>Hochzeitswebsite</strong> – alle Infos zentral</summary>
-          <p class="muted">Module lassen sich ein-/ausblenden (Ablauf, Locations, Trauzeugen, Geschenke, FAQ, RSVP, Galerie, Countdown).</p>
-        </details>
-        <details class="card">
-          <summary><strong>Fotogalerien</strong> – Fotograf & Gäste</summary>
-          <p class="muted">Zwei Bereiche: kuratierte Bilder vom Fotografen & Upload-Link für Gäste (Dropbox/Drive-Ordner).</p>
-        </details>
-
-        <div class="card">
-          <h3>Designs & Schriften</h3>
-          <p class="muted">Mindestens sechs Kombinationen (Serif/Sans, verspielt/klassisch). Im MVP: Farben & Fonts direkt im Code – später per Konfigurator.</p>
-        </div>
-        <div class="card">
-          <h3>Mehrsprachigkeit</h3>
-          <p class="muted">DE/EN als Start (Schalter oben). Weitere Sprachen lassen sich ergänzen.</p>
-        </div>
-        <div class="card">
-          <h3>Domain</h3>
-          <p class="muted">Individuelle Subdomain pro Paar (z. B. <code>janine-alex.hochzeitsweb.de</code>), eigene Domains später möglich.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- KONTAKT (nur Formular) -->
-  <section id="kontakt" class="container hidden" style="padding:28px 0">
-    <div class="card">
-      <h2>Angebotsanfrage</h2>
-      <form name="kontakt" method="POST" netlify netlify-honeypot="bot-field" action="/success.html">
-        <input type="hidden" name="form-name" value="kontakt">
-        <div aria-hidden="true" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;">
-          <label>Leave this field empty: <input name="bot-field"></label>
-        </div>
-      
-        <label>Kontaktname<br><input name="cname" required placeholder="Euer Name" style="width:100%"></label><br>
-        <label>E-Mail<br><input type="email" name="cemail" required placeholder="name@mail.de" style="width:100%"></label><br>
-        <label>Geplantes Datum<br><input type="date" name="cdate" style="width:100%"></label><br>
-        <label>Gewünschtes Paket<br>
-          <select name="cplan" style="width:100%">
-            <option>Flex</option>
-            <option>Plus</option>
-          </select>
-        </label><br>
-        <label>Nachricht<br><textarea name="cmsg" rows="4" placeholder="Wünsche, Sprachen, Speicherbedarf…" style="width:100%"></textarea></label><br>
-      
-        <button class="btn" type="submit">Anfrage senden</button>
-      </form>      
-    </div>
-  </section>
+  
 </main>
 
-<footer>
-  <div class="container footer-grid">
-    <div>© <span id="year"></span> Hochzeitswebsite · <a href="#" class="muted">Impressum</a> · <a href="#" class="muted">Datenschutz</a></div>
-    <div class="muted">MVP · DSGVO-freundlicher Aufbau (ohne Tracking)</div>
-  </div>
-</footer>
+<div id="site-footer"></div>
 
 <script src="/assets/js/main.js" defer></script>
-
-<!-- Hidden blueprints for Netlify parser (stay invisible) -->
-<div style="display:none !important;">
-  <form name="kontakt" netlify netlify-honeypot="bot-field">
-    <input type="hidden" name="form-name" value="kontakt">
-    <input name="cname"><input name="cemail"><input name="cdate"><input name="cplan"><textarea name="cmsg"></textarea>
-  </form>
-
-  <form name="rsvp" netlify netlify-honeypot="bot-field">
-    <input type="hidden" name="form-name" value="rsvp">
-    <input name="name"><input name="email"><input name="guests">
-    <textarea name="guest_names"></textarea><textarea name="allergies"></textarea><input name="kids">
-  </form>
-</div>
+<script src="/assets/js/include.js" defer></script>
 
 </body>
 </html>

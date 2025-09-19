@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kontakt – Hochzeitswebsite</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>💍</text></svg>">
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main>
+    <section class="container" style="padding:28px 0">
+      <div class="card">
+        <h2>Angebotsanfrage</h2>
+        <form name="kontakt" method="POST" netlify netlify-honeypot="bot-field" action="/success.html">
+          <input type="hidden" name="form-name" value="kontakt">
+          <div aria-hidden="true" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;">
+            <label>Leave this field empty: <input name="bot-field"></label>
+          </div>
+
+          <label>Kontaktname<br><input name="cname" required placeholder="Euer Name"></label><br>
+          <label>E-Mail<br><input type="email" name="cemail" required placeholder="name@mail.de"></label><br>
+          <label>Geplantes Datum<br><input type="date" name="cdate"></label><br>
+          <label>Gewünschtes Paket<br>
+            <select name="cplan">
+              <option>Flex</option>
+              <option>Plus</option>
+            </select>
+          </label><br>
+          <label>Nachricht<br><textarea name="cmsg" rows="4" placeholder="Wünsche, Sprachen, Speicherbedarf…"></textarea></label><br>
+
+          <button class="btn" type="submit">Anfrage senden</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="/assets/js/main.js" defer></script>
+  <script src="/assets/js/include.js" defer></script>
+
+  <!-- optionaler blueprint -->
+  <div style="display:none !important;">
+    <form name="kontakt" netlify netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="kontakt">
+      <input name="cname"><input name="cemail"><input name="cdate"><input name="cplan"><textarea name="cmsg"></textarea>
+    </form>
+  </div>
+  
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Beispiel – Hochzeitswebsite</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>💍</text></svg>">
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main>
+    <section class="container" style="padding:28px 0;border-bottom:1px solid var(--line)">
+      <div class="two-col">
+        <div class="grid">
+          <h2>Beispielseite (für Gäste)</h2>
+
+          <div class="card">
+            <h3>Save the Date</h3>
+            <p class="muted">Haltet euch den <strong>12. Juli 2026</strong> frei! Details folgen hier auf der Website.</p>
+            <div id="countdown" class="badge">Countdown: –:–:–</div>
+          </div>
+
+          <div class="card">
+            <h3>Tagesablauf</h3>
+            <ul class="muted">
+              <li>13:00 – Trauung (Stadtkirche)</li>
+              <li>14:30 – Sektempfang (Kirchplatz)</li>
+              <li>16:30 – Fotos & Anreise Location</li>
+              <li>18:00 – Dinner & Programm</li>
+              <li>21:30 – Eröffnungstanz & Party</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Locations</h3>
+            <details open>
+              <summary>Kirche / Rathaus</summary>
+              <p class="muted">Musterstraße 1 · 12345 Musterstadt · Parken in P-Haus Mitte</p>
+            </details>
+            <details>
+              <summary>Feier-Location</summary>
+              <p class="muted">Alte Mühle · Shuttle ab 16:00 Uhr</p>
+            </details>
+            <details>
+              <summary>Übernachtung</summary>
+              <p class="muted">Hotel Sonne (Abrufkontingent „Hochzeit Müller“) · Weitere Hotels in Laufnähe</p>
+            </details>
+          </div>
+
+          <div class="card">
+            <h3>Trauzeugen</h3>
+            <div class="two-col">
+              <div>
+                <strong>Lisa Beispiel</strong>
+                <div class="muted">Kontakt: <a href="mailto:lisa@example.com">lisa@example.com</a></div>
+              </div>
+              <div>
+                <strong>Max Beispiel</strong>
+                <div class="muted">Kontakt: <a href="mailto:max@example.com">max@example.com</a></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Lovestory & Lieblingsdinge</h3>
+            <p class="muted">Wir lernten uns 2018 kennen …</p>
+            <p class="muted"><em>Lieblingszitat:</em> „All of me loves all of you.“</p>
+            <p class="muted"><em>Lieblingslied:</em> John Legend – All of Me</p>
+          </div>
+
+          <div class="card">
+            <h3>Geschenkwünsche</h3>
+            <p class="muted">Ihr macht uns mit eurer Anwesenheit das größte Geschenk. Wer trotzdem etwas beisteuern möchte, findet hier eine kleine Wunschliste.</p>
+            <ul class="muted">
+              <li><a href="#">Beitrag zur Reisekasse</a> – <span class="badge">Reservieren</span></li>
+              <li><a href="#">Küchenmaschine</a> – <span class="badge">Frei</span></li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>FAQ</h3>
+            <details>
+              <summary>Dresscode?</summary>
+              <p class="muted">Sommerlich-festlich. Bitte keine Weißtöne.</p>
+            </details>
+            <details>
+              <summary>Kinder willkommen?</summary>
+              <p class="muted">Ja, es gibt eine Spielecke und Kinderessen.</p>
+            </details>
+            <details>
+              <summary>Fotos & Galerie</summary>
+              <p class="muted">Nach der Feier könnt ihr <a href="#" title="Dropbox/Drive Upload">hier</a> eure Fotos hochladen.</p>
+            </details>
+          </div>
+        </div>
+
+        <div class="grid">
+          <h2>RSVP</h2>
+          <form name="rsvp" method="POST" netlify netlify-honeypot="bot-field" action="/success.html" class="card">
+            <input type="hidden" name="form-name" value="rsvp">
+            <div aria-hidden="true" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;">
+              <label>Leave this field empty: <input name="bot-field"></label>
+            </div>
+
+            <label>Voller Name<br><input name="name" required placeholder="Vor- und Nachname"></label><br>
+            <label>E-Mail<br><input type="email" name="email" required placeholder="name@mail.de"></label><br>
+            <label>Personen gesamt (#)<br><input type="number" min="1" name="guests" required value="1"></label><br>
+            <label>Namen der Gäste<br><textarea name="guest_names" rows="3" placeholder="z. B. Alex, Janine"></textarea></label><br>
+            <label>Allergien/Unverträglichkeiten<br><textarea name="allergies" rows="2" placeholder="z. B. glutenfrei"></textarea></label><br>
+            <label>Anzahl Kinder (#)<br><input type="number" min="0" name="kids" value="0"></label><br>
+
+            <button class="btn" type="submit">Zusage senden</button>
+          </form>
+
+          <h2>Infoboxen (für euch erklärt)</h2>
+          <details class="card" open>
+            <summary><strong>Save the Date</strong> – kurze Ankündigung frühzeitig</summary>
+            <p class="muted">Eigene Sektion mit Datum & kleinem Text. Optional als separater Link (z. B. <code>euer-name.site/savethedate</code>).</p>
+          </details>
+          <details class="card">
+            <summary><strong>Hochzeitswebsite</strong> – alle Infos zentral</summary>
+            <p class="muted">Module lassen sich ein-/ausblenden (Ablauf, Locations, Trauzeugen, Geschenke, FAQ, RSVP, Galerie, Countdown).</p>
+          </details>
+          <details class="card">
+            <summary><strong>Fotogalerien</strong> – Fotograf & Gäste</summary>
+            <p class="muted">Zwei Bereiche: kuratierte Bilder vom Fotografen & Upload-Link für Gäste (Dropbox/Drive-Ordner).</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="/assets/js/main.js" defer></script>
+  <script src="/assets/js/include.js" defer></script>
+
+  <!-- Hidden blueprint (optional, falls du ihn hier separat möchtest) -->
+    <div style="display:none !important;">
+    <form name="rsvp" netlify netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="rsvp">
+      <input name="name"><input name="email"><input name="guests">
+      <textarea name="guest_names"></textarea><textarea name="allergies"></textarea><input name="kids">
+    </form>
+  </div>
+</body>
+</html>
