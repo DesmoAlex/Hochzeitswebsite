@@ -215,20 +215,19 @@
 
       <div class="grid">
         <h2>RSVP</h2>
-        <form name="rsvp" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/success.html">
+        <form name="rsvp" method="POST" netlify data-netlify="true" netlify-honeypot="bot-field" action="/success.html">
           <input type="hidden" name="form-name" value="rsvp">
           <p class="hidden"><label>Don’t fill this out: <input name="bot-field"></label></p>
         
-          <label>Voller Name<br><input name="name" required placeholder="Vor- und Nachname" style="width:100%"></label><br>
-          <label>E-Mail<br><input type="email" name="email" required placeholder="name@mail.de" style="width:100%"></label><br>
-          <label>Personen gesamt (#)<br><input type="number" min="1" name="guests" required value="1" style="width:100%"></label><br>
-          <label>Namen der Gäste<br><textarea name="guest_names" rows="3" placeholder="z. B. Alex, Janine"></textarea></label><br>
-          <label>Allergien/Unverträglichkeiten<br><textarea name="allergies" rows="2" placeholder="z. B. glutenfrei"></textarea></label><br>
-          <label>Anzahl Kinder (#)<br><input type="number" min="0" name="kids" value="0" style="width:100%"></label><br>
-          <button class="btn" type="submit">Zusage senden</button>
-        </form>
-        
-
+          <!-- deine Felder -->
+          <input name="name" required>
+          <input type="email" name="email" required>
+          <input type="number" name="guests" min="1" required>
+          <textarea name="guest_names"></textarea>
+          <textarea name="allergies"></textarea>
+          <input type="number" name="kids" min="0" value="0">
+          <button type="submit">Zusage senden</button>
+        </form>              
         <h2>Infoboxen (für euch erklärt)</h2>
         <details class="card" open>
           <summary><strong>Save the Date</strong> – kurze Ankündigung frühzeitig</summary>
@@ -263,22 +262,18 @@
   <section id="kontakt" class="container hidden" style="padding:28px 0">
     <div class="card">
       <h2>Angebotsanfrage</h2>
-      <form name="kontakt" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/success.html">
+      <form name="kontakt" method="POST" netlify data-netlify="true" netlify-honeypot="bot-field" action="/success.html">
         <input type="hidden" name="form-name" value="kontakt">
         <p class="hidden"><label>Don’t fill this out: <input name="bot-field"></label></p>
       
-        <label>Kontaktname<br><input name="cname" required placeholder="Euer Name" style="width:100%"></label><br>
-        <label>E-Mail<br><input type="email" name="cemail" required placeholder="name@mail.de" style="width:100%"></label><br>
-        <label>Geplantes Datum<br><input type="date" name="cdate" style="width:100%"></label><br>
-        <label>Gewünschtes Paket<br>
-          <select name="cplan" style="width:100%">
-            <option>Flex</option>
-            <option>Plus</option>
-          </select>
-        </label><br>
-        <label>Nachricht<br><textarea name="cmsg" rows="4" placeholder="Wünsche, Sprachen, Speicherbedarf…"></textarea></label><br>
-        <button class="btn" type="submit">Anfrage senden</button>
-      </form>      
+        <!-- deine Felder -->
+        <input name="cname" required>
+        <input type="email" name="cemail" required>
+        <input type="date" name="cdate">
+        <select name="cplan"><option>Flex</option><option>Plus</option></select>
+        <textarea name="cmsg"></textarea>
+        <button type="submit">Anfrage senden</button>
+      </form>            
     </div>
   </section>
 </main>
@@ -315,7 +310,7 @@ function tick(){
 setInterval(tick, 30000); tick();
 
 // RSVP via mailto (später Formspree/Netlify Forms)
-function handleRSVP(e){
+/* function handleRSVP(e){
   e.preventDefault();
   const data=Object.fromEntries(new FormData(e.target).entries());
   const subject=encodeURIComponent('RSVP zur Hochzeit');
@@ -347,7 +342,7 @@ Nachricht: ${data.cmsg}`
   const mail=`mailto:info@hochzeitsweb.de?subject=${subject}&body=${body}`;
   document.getElementById('contactMsg').textContent='Öffne E-Mail Programm…';
   window.location.href=mail;
-}
+} */
 
 // Mini-I18N (rudimentär; Ausbau später)
 const i18n = { de:{
@@ -382,5 +377,19 @@ document.getElementById('year').textContent=new Date().getFullYear();
 // Initialzustand
 show('#start');
 </script>
+<!-- Hidden blueprints for Netlify parser -->
+<form name="kontakt" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input type="hidden" name="form-name" value="kontakt">
+  <input name="cname"><input name="cemail">
+  <input name="cdate"><input name="cplan"><textarea name="cmsg"></textarea>
+</form>
+
+<form name="rsvp" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input type="hidden" name="form-name" value="rsvp">
+  <input name="name"><input name="email"><input name="guests">
+  <textarea name="guest_names"></textarea>
+  <textarea name="allergies"></textarea>
+  <input name="kids">
+</form>
 </body>
 </html>
