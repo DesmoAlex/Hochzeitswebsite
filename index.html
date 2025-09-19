@@ -1,0 +1,398 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!doctype html&gt;</p>
+<p class="p1">&lt;html lang="de"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="utf-8" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Hochzeitswebsite – Einladungen, RSVP &amp; Galerie (MVP)&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="description" content="Schnelle Hochzeitswebsite als Einladung: RSVP, Ablauf, Locations, Galerie-Upload und mehr. Mehrsprachig und mobiloptimiert." /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta property="og:title" content="Hochzeitswebsite – Einladungen, RSVP &amp; Galerie" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta property="og:description" content="Papierlos einladen, Zusagen sammeln, Infos teilen und Fotos einsammeln – alles auf einer Seite." /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="theme-color" content="#0b1220" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='0.9em' font-size='90'&gt;💍&lt;/text&gt;&lt;/svg&gt;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>:root{--bg:#0b1220;--fg:#e5e7eb;--muted:#9ca3af;--accent:#f472b6;--card:#111827;--line:#1f2937;--ok:#34d399;--warn:#f59e0b}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>*{box-sizing:border-box}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>a{color:#93c5fd}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>header{position:sticky;top:0;backdrop-filter:saturate(140%) blur(8px);background:rgba(11,18,32,.7);border-bottom:1px solid var(--line);z-index:50}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>nav{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;padding:10px 16px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.brand{display:flex;align-items:center;gap:10px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.logo{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,#f472b6,#60a5fa);display:grid;place-items:center}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.nav-links{display:flex;gap:10px;flex-wrap:wrap}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn{display:inline-block;padding:10px 16px;border-radius:12px;background:var(--accent);color:#120a16;font-weight:700;border:1px solid #be185d}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn.secondary{background:transparent;color:var(--fg);border-color:#374151}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn.ghost{background:transparent;border-color:transparent;color:#cbd5e1}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.container{max-width:1200px;margin:0 auto;padding:0 16px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero{padding:48px 0;border-bottom:1px solid var(--line)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>h1{font-size:clamp(28px,4vw,44px);line-height:1.15;margin:0 0 12px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.lead{color:var(--muted)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.grid{display:grid;gap:16px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.badge{display:inline-block;padding:6px 10px;border:1px solid #374151;border-radius:999px;background:#0b1324;color:#cbd5e1;font-size:12px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.tabs{display:flex;gap:8px;flex-wrap:wrap}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.tab{padding:8px 12px;border:1px solid #374151;border-radius:999px;cursor:pointer}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.tab[aria-selected="true"]{background:#0b1a33;border-color:#1f3b64}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>section{scroll-margin-top:70px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>details+details{margin-top:12px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.kpi{display:flex;align-items:center;gap:10px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.kpi .dot{width:10px;height:10px;border-radius:50%;background:var(--ok)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.muted{color:var(--muted)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hidden{display:none}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:14px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.footer-grid{display:grid;grid-template-columns:1fr auto;align-items:center}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>@media (max-width:960px){.hero-grid{grid-template-columns:1fr}.feature-grid{grid-template-columns:1fr 1fr}.two-col,.three-col{grid-template-columns:1fr}}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1">&lt;header&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;nav&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="brand"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="logo"&gt;💍&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;strong id="brand"&gt;Hochzeitswebsite&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="nav-links"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="tab" data-target="#start" aria-selected="true"&gt;Start&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="tab" data-target="#beispiel"&gt;Beispiel&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="tab" data-target="#kontakt"&gt;Kontakt&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="tab ghost" id="langToggle" title="Sprache wechseln"&gt;DE/EN&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/nav&gt;</p>
+<p class="p1">&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;main&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- START --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;section id="start" class="hero"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container hero-grid"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h1 data-i18n="hero_title"&gt;Die papierlose Einladung für euren schönsten Tag.&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="lead" data-i18n="hero_lead"&gt;Versendet eine stilvolle Website statt Papier: mit RSVP‑Formular, Tagesablauf, Locations, Fotogalerie &amp; mehr – mobiloptimiert, schnell und mehrsprachig.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div style="display:flex;gap:10px;margin:12px 0 8px"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;a href="#beispiel" class="btn" data-i18n="cta_demo"&gt;Beispiel ansehen&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;a href="#kontakt" class="btn secondary" data-i18n="cta_offer"&gt;Angebot anfragen&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="badge"&gt;RSVP&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="badge" data-i18n="badge_gallery"&gt;Fotogalerie &amp; Upload&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="badge" data-i18n="badge_languages"&gt;Mehrsprachig&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="badge" data-i18n="badge_fast"&gt;Schnell &amp; mobil&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="badge" data-i18n="badge_domain"&gt;Individuelle Subdomain&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="grid"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="kpi"&gt;&lt;span class="dot"&gt;&lt;/span&gt;&lt;div&gt;&lt;strong data-i18n="kpi_paper"&gt;Papier sparen&lt;/strong&gt;&lt;div class="muted" data-i18n="kpi_paper_sub"&gt;Einladung, Infos &amp; Dankesmail digital&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="kpi"&gt;&lt;span class="dot"&gt;&lt;/span&gt;&lt;div&gt;&lt;strong data-i18n="kpi_rsvp"&gt;Schnelle Rückmeldungen&lt;/strong&gt;&lt;div class="muted" data-i18n="kpi_rsvp_sub"&gt;Gäste sagen direkt per Formular zu&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="kpi"&gt;&lt;span class="dot"&gt;&lt;/span&gt;&lt;div&gt;&lt;strong data-i18n="kpi_gallery"&gt;Alle Fotos an einem Ort&lt;/strong&gt;&lt;div class="muted" data-i18n="kpi_gallery_sub"&gt;Dropbox/Drive‑Anbindung möglich&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;section class="container" style="padding:28px 0;border-bottom:1px solid var(--line)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2 data-i18n="offer_title" style="margin:0 0 12px"&gt;Was eure Seite kann&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="feature-grid"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card"&gt;&lt;strong&gt;• Tagesablauf&lt;/strong&gt;&lt;div class="muted"&gt;Zeitplan mit Anfahrtshinweisen&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card"&gt;&lt;strong&gt;• Locations&lt;/strong&gt;&lt;div class="muted"&gt;Kirche/Rathaus/Feier · Parken · Hotels&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card"&gt;&lt;strong&gt;• Trauzeugen&lt;/strong&gt;&lt;div class="muted"&gt;Kurzvorstellung mit Bild &amp; Kontakt&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card"&gt;&lt;strong&gt;• Bilder &amp; Lovestory&lt;/strong&gt;&lt;div class="muted"&gt;Gemeinsames Zitat &amp; Lieblingslied&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card"&gt;&lt;strong&gt;• Geschenke&lt;/strong&gt;&lt;div class="muted"&gt;Wunschliste mit Reservierungsoption&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card"&gt;&lt;strong&gt;• FAQ&lt;/strong&gt;&lt;div class="muted"&gt;Dresscode, Kinder, Anreise, Allergien&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card"&gt;&lt;strong&gt;• RSVP&lt;/strong&gt;&lt;div class="muted"&gt;Namen, Personenanzahl, Allergien, Kinder&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card"&gt;&lt;strong&gt;• Galerie&lt;/strong&gt;&lt;div class="muted"&gt;Upload‑Link für Gäste, Auswahl für Fotografen&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card"&gt;&lt;strong&gt;• Countdown&lt;/strong&gt;&lt;div class="muted"&gt;Automatisch bis zum großen Tag&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;section class="container" style="padding:28px 0;border-bottom:1px solid var(--line)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2 style="margin:0 0 12px"&gt;Pakete &amp; Laufzeiten&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="two-col"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3&gt;Flex&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;ul class="muted"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;12 Monate Laufzeit, verlängerbar&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;Eigene Subdomain: &lt;code&gt;euer-name.meine-hochzeit.de&lt;/code&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;Speicher: 5–20 GB (wählbar)&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;E-Mail Benachrichtigung bei RSVPs&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3&gt;Plus&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;ul class="muted"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;12 Monate fest (inkl. Dankesseite)&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;Mehrsprachig (DE/EN, erweiterbar)&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;Automatisierte Einladungs‑/Dankesmails&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;Erweiterte Galerie (Gäste‑Uploads)&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p class="muted" style="margin-top:8px"&gt;Hinweis: Preise/Beauftragung sind Platzhalter – diesen Abschnitt könnt ihr an euer Angebotsmodell anpassen.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- BEISPIEL (Demo der Hochzeitsseite für Gäste) --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;section id="beispiel" class="container hidden" style="padding:28px 0;border-bottom:1px solid var(--line)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="two-col"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="grid"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;Beispielseite (für Gäste)&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h3&gt;Save the Date&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p class="muted"&gt;Haltet euch den &lt;strong&gt;12. Juli 2026&lt;/strong&gt; frei! Details folgen hier auf der Website.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div id="countdown" class="badge"&gt;Countdown: –:–:–&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h3&gt;Tagesablauf&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;ul class="muted"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;li&gt;13:00 – Trauung (Stadtkirche)&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;li&gt;14:30 – Sektempfang (Kirchplatz)&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;li&gt;16:30 – Fotos &amp; Anreise Location&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;li&gt;18:00 – Dinner &amp; Programm&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;li&gt;21:30 – Eröffnungstanz &amp; Party&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h3&gt;Locations&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;details open&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;Kirche / Rathaus&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="muted"&gt;Musterstraße 1 · 12345 Musterstadt · Parken in P‑Haus Mitte&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;Feier‑Location&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="muted"&gt;Alte Mühle · Shuttle ab 16:00 Uhr&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;Übernachtung&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="muted"&gt;Hotel Sonne (Abrufkontingent „Hochzeit Müller“) · Weitere Hotels in Laufnähe&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h3&gt;Trauzeugen&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="two-col"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;strong&gt;Lisa Beispiel&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="muted"&gt;Kontakt: &lt;a href="mailto:lisa@example.com"&gt;lisa@example.com&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;strong&gt;Max Beispiel&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="muted"&gt;Kontakt: &lt;a href="mailto:max@example.com"&gt;max@example.com&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h3&gt;Lovestory &amp; Lieblingsdinge&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p class="muted"&gt;Wir lernten uns 2018 kennen …&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p class="muted"&gt;&lt;em&gt;Lieblingszitat:&lt;/em&gt; „All of me loves all of you.“&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p class="muted"&gt;&lt;em&gt;Lieblingslied:&lt;/em&gt; John Legend – All of Me&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h3&gt;Geschenkwünsche&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p class="muted"&gt;Ihr macht uns mit eurer Anwesenheit das größte Geschenk. Wer trotzdem etwas beisteuern möchte, findet hier eine kleine Wunschliste.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;ul class="muted"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;li&gt;&lt;a href="#"&gt;Beitrag zur Reisekasse&lt;/a&gt; – &lt;span class="badge"&gt;Reservieren&lt;/span&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;li&gt;&lt;a href="#"&gt;Küchenmaschine&lt;/a&gt; – &lt;span class="badge"&gt;Frei&lt;/span&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h3&gt;FAQ&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;Dresscode?&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="muted"&gt;Sommerlich‑festlich. Bitte keine Weißtöne.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;Kinder willkommen?&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="muted"&gt;Ja, es gibt eine Spielecke und Kinderessen.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;summary&gt;Fotos &amp; Galerie&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="muted"&gt;Nach der Feier könnt ihr &lt;a href="#" title="Dropbox/Drive Upload"&gt;hier&lt;/a&gt; eure Fotos hochladen.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="grid"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;RSVP&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;form id="rsvpForm" class="card" onsubmit="handleRSVP(event)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;label&gt;Voller Name&lt;br&gt;&lt;input name="name" required placeholder="Vor- und Nachname" style="width:100%"&gt;&lt;/label&gt;&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;label&gt;E‑Mail&lt;br&gt;&lt;input type="email" name="email" required placeholder="name@mail.de" style="width:100%"&gt;&lt;/label&gt;&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;label&gt;Personen gesamt (#)&lt;br&gt;&lt;input type="number" min="1" name="guests" required value="1" style="width:100%"&gt;&lt;/label&gt;&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;label&gt;Namen der Gäste&lt;br&gt;&lt;textarea name="guest_names" rows="3" placeholder="z. B. Alex, Janine"&gt;&lt;/textarea&gt;&lt;/label&gt;&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;label&gt;Allergien/Unverträglichkeiten&lt;br&gt;&lt;textarea name="allergies" rows="2" placeholder="z. B. glutenfrei"&gt;&lt;/textarea&gt;&lt;/label&gt;&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;label&gt;Anzahl Kinder (#)&lt;br&gt;&lt;input type="number" min="0" name="kids" value="0" style="width:100%"&gt;&lt;/label&gt;&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;button class="btn" type="submit"&gt;Zusage senden&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p id="rsvpMsg" class="muted" style="margin:8px 0 0"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p class="muted" style="font-size:12px;margin:8px 0 0"&gt;Standard: Versand per E‑Mail (lokaler Client). Später: Formspree/Netlify Forms/Webhook.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/form&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;Infoboxen (für euch erklärt)&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details class="card" open&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;summary&gt;&lt;strong&gt;Save the Date&lt;/strong&gt; – kurze Ankündigung frühzeitig&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p class="muted"&gt;Eigene Sektion mit Datum &amp; kleinem Text. Optional als separater Link (z. B. &lt;code&gt;euer-name.site/savethedate&lt;/code&gt;).&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;summary&gt;&lt;strong&gt;Hochzeitswebsite&lt;/strong&gt; – alle Infos zentral&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p class="muted"&gt;Module lassen sich ein‑/ausblenden (Ablauf, Locations, Trauzeugen, Geschenke, FAQ, RSVP, Galerie, Countdown).&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;details class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;summary&gt;&lt;strong&gt;Fotogalerien&lt;/strong&gt; – Fotograf &amp; Gäste&lt;/summary&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p class="muted"&gt;Zwei Bereiche: kuratierte Bilder vom Fotografen &amp; Upload‑Link für Gäste (Dropbox/Drive‑Ordner).&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/details&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- KONTAKT / ANGEBOT --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;section id="kontakt" class="container hidden" style="padding:28px 0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="two-col"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;Angebotsanfrage&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;form onsubmit="handleContact(event)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;label&gt;Kontaktname&lt;br&gt;&lt;input name="cname" required placeholder="Euer Name" style="width:100%"&gt;&lt;/label&gt;&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;label&gt;E‑Mail&lt;br&gt;&lt;input type="email" name="cemail" required placeholder="name@mail.de" style="width:100%"&gt;&lt;/label&gt;&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;label&gt;Geplantes Datum&lt;br&gt;&lt;input type="date" name="cdate" style="width:100%"&gt;&lt;/label&gt;&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;label&gt;Gewünschtes Paket&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;select name="cplan" style="width:100%"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;option&gt;Flex&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;option&gt;Plus&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/label&gt;&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;label&gt;Nachricht&lt;br&gt;&lt;textarea name="cmsg" rows="4" placeholder="Wünsche, Sprachen, Speicherbedarf…"&gt;&lt;/textarea&gt;&lt;/label&gt;&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;button class="btn" type="submit"&gt;Anfrage senden&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p id="contactMsg" class="muted" style="margin:8px 0 0"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/form&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="grid"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h3&gt;Designs &amp; Schriften&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p class="muted"&gt;Mindestens sechs Kombinationen sind vorgesehen (Serif/Sans, verspielt/klassisch). In diesem MVP könnt ihr Farben &amp; Fonts direkt im Code wechseln – später per Konfigurator.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h3&gt;Mehrsprachigkeit&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p class="muted"&gt;DE/EN als Start (Schalter oben). Weitere Sprachen lassen sich ergänzen.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h3&gt;Domain&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p class="muted"&gt;Individuelle Subdomain pro Paar (z. B. &lt;code&gt;janine‑alex.hochzeitsweb.de&lt;/code&gt;), eigene Domains später möglich.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
+<p class="p1">&lt;/main&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;footer&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="container footer-grid"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div&gt;© &lt;span id="year"&gt;&lt;/span&gt; Hochzeitswebsite · &lt;a href="#" class="muted"&gt;Impressum&lt;/a&gt; · &lt;a href="#" class="muted"&gt;Datenschutz&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="muted"&gt;MVP · DSGVO‑freundlicher Aufbau (ohne Tracking)&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/footer&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p1">// --- Tabs / Routen ohne Seitenwechsel ---</p>
+<p class="p1">const tabs = document.querySelectorAll('.tab[data-target]');</p>
+<p class="p1">const sections = ['#start','#beispiel','#kontakt'].map(id=&gt;document.querySelector(id));</p>
+<p class="p1">function show(id){sections.forEach(s=&gt;s.classList.toggle('hidden', '#'+s.id!==id));tabs.forEach(t=&gt;t.setAttribute('aria-selected', t.dataset.target===id))}</p>
+<p class="p1">tabs.forEach(t=&gt;t.addEventListener('click',()=&gt;show(t.dataset.target)));</p>
+<p class="p2"><br></p>
+<p class="p1">// --- Countdown (Demo-Datum anpassen) ---</p>
+<p class="p1">const date = new Date('2026-07-12T13:00:00');</p>
+<p class="p1">function tick(){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const el=document.getElementById('countdown');if(!el) return;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const d=date - new Date(); if(d&lt;=0){el.textContent='Heute ist es so weit!';return}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const days=Math.floor(d/86400000), hrs=Math.floor(d%86400000/3600000), mins=Math.floor(d%3600000/60000)</p>
+<p class="p1"><span class="Apple-converted-space">  </span>el.textContent=`Countdown: ${days}d ${hrs}h ${mins}m`</p>
+<p class="p1">}</p>
+<p class="p1">setInterval(tick, 30000); tick();</p>
+<p class="p2"><br></p>
+<p class="p1">// --- RSVP via mailto (Formspree/Netlify später) ---</p>
+<p class="p1">function handleRSVP(e){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>e.preventDefault();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const f=e.target; const data=Object.fromEntries(new FormData(f).entries());</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const subject=encodeURIComponent('RSVP zur Hochzeit');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const body=encodeURIComponent(`Name: ${data.name}</p>
+<p class="p1">E-Mail: ${data.email}</p>
+<p class="p1">Personen: ${data.guests}</p>
+<p class="p1">Namen: ${data.guest_names}</p>
+<p class="p1">Allergien: ${data.allergies}</p>
+<p class="p1">Kinder: ${data.kids}`);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const mail=`mailto:brautpaar@example.com?subject=${subject}&amp;body=${body}`;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('rsvpMsg').textContent='Öffne E‑Mail Programm…';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>window.location.href=mail;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">// --- Kontakt via mailto ---</p>
+<p class="p1">function handleContact(e){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>e.preventDefault();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const f=e.target; const data=Object.fromEntries(new FormData(f).entries());</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const subject=encodeURIComponent('Angebotsanfrage Hochzeitswebsite');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const body=encodeURIComponent(`Name: ${data.cname}</p>
+<p class="p1">E-Mail: ${data.cemail}</p>
+<p class="p1">Datum: ${data.cdate}</p>
+<p class="p1">Paket: ${data.cplan}</p>
+<p class="p1">Nachricht: ${data.cmsg}`);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const mail=`mailto:info@hochzeitsweb.de?subject=${subject}&amp;body=${body}`;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('contactMsg').textContent='Öffne E‑Mail Programm…';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>window.location.href=mail;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">// --- I18N Mini (DE/EN) ---</p>
+<p class="p1">const i18n = {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>de: {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>hero_title: 'Die papierlose Einladung für euren schönsten Tag.',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>hero_lead: 'Versendet eine stilvolle Website statt Papier: mit RSVP‑Formular, Tagesablauf, Locations, Fotogalerie &amp; mehr – mobiloptimiert, schnell und mehrsprachig.',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>cta_demo: 'Beispiel ansehen',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>cta_offer: 'Angebot anfragen',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>badge_gallery: 'Fotogalerie &amp; Upload',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>badge_languages: 'Mehrsprachig',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>badge_fast: 'Schnell &amp; mobil',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>badge_domain: 'Individuelle Subdomain',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>kpi_paper: 'Papier sparen', kpi_paper_sub: 'Einladung, Infos &amp; Dankesmail digital',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>kpi_rsvp: 'Schnelle Rückmeldungen', kpi_rsvp_sub: 'Gäste sagen direkt per Formular zu',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>kpi_gallery: 'Alle Fotos an einem Ort', kpi_gallery_sub: 'Dropbox/Drive‑Anbindung möglich',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>offer_title:'Was eure Seite kann'</p>
+<p class="p1"><span class="Apple-converted-space">  </span>},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>en: {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>hero_title: 'The paperless invitation for your big day.',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>hero_lead: 'Send a beautiful website instead of paper: RSVP form, schedule, venues, photo gallery &amp; more – mobile‑optimized, fast, multilingual.',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>cta_demo: 'View example',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>cta_offer: 'Request offer',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>badge_gallery: 'Photo gallery &amp; uploads',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>badge_languages: 'Multilingual',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>badge_fast: 'Fast &amp; mobile',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>badge_domain: 'Custom subdomain',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>kpi_paper: 'Save paper', kpi_paper_sub: 'Invites, info &amp; thank-you emails go digital',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>kpi_rsvp: 'Fast RSVPs', kpi_rsvp_sub: 'Guests confirm via form',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>kpi_gallery: 'All photos in one place', kpi_gallery_sub: 'Dropbox/Drive supported',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>offer_title:'What your site provides'</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1">}</p>
+<p class="p1">let lang='de';</p>
+<p class="p1">function applyLang(){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.querySelectorAll('[data-i18n]').forEach(el=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const k=el.getAttribute('data-i18n'); el.textContent = (i18n[lang]&amp;&amp;i18n[lang][k])||el.textContent</p>
+<p class="p1"><span class="Apple-converted-space">  </span>})</p>
+<p class="p1">}</p>
+<p class="p1">applyLang();</p>
+<p class="p2"><br></p>
+<p class="p1">document.getElementById('langToggle').addEventListener('click',()=&gt;{lang = lang==='de'?'en':'de'; applyLang();})</p>
+<p class="p2"><br></p>
+<p class="p1">document.getElementById('year').textContent=new Date().getFullYear()</p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
