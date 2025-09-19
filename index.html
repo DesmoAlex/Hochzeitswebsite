@@ -261,7 +261,10 @@
   <section id="kontakt" class="container hidden" style="padding:28px 0">
     <div class="card">
       <h2>Angebotsanfrage</h2>
-      <form onsubmit="handleContact(event)">
+      <form name="kontakt" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/success.html">
+        <input type="hidden" name="form-name" value="kontakt">
+        <p class="hidden"><label>Don’t fill this out: <input name="bot-field"></label></p>
+      
         <label>Kontaktname<br><input name="cname" required placeholder="Euer Name" style="width:100%"></label><br>
         <label>E-Mail<br><input type="email" name="cemail" required placeholder="name@mail.de" style="width:100%"></label><br>
         <label>Geplantes Datum<br><input type="date" name="cdate" style="width:100%"></label><br>
@@ -273,8 +276,7 @@
         </label><br>
         <label>Nachricht<br><textarea name="cmsg" rows="4" placeholder="Wünsche, Sprachen, Speicherbedarf…"></textarea></label><br>
         <button class="btn" type="submit">Anfrage senden</button>
-        <p id="contactMsg" class="muted" style="margin:8px 0 0"></p>
-      </form>
+      </form>      
     </div>
   </section>
 </main>
