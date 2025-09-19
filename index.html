@@ -217,8 +217,10 @@
         <h2>RSVP</h2>
         <form name="rsvp" method="POST" netlify data-netlify="true" netlify-honeypot="bot-field" action="/success.html">
           <input type="hidden" name="form-name" value="rsvp">
-          <p class="hidden"><label>Don’t fill this out: <input name="bot-field"></label></p>
-        
+          <div aria-hidden="true" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;">
+            <label>Leave this field empty: <input name="bot-field"></label>
+          </div>
+                 
           <!-- deine Felder -->
           <input name="name" required>
           <input type="email" name="email" required>
@@ -377,19 +379,19 @@ document.getElementById('year').textContent=new Date().getFullYear();
 // Initialzustand
 show('#start');
 </script>
-<!-- Hidden blueprints for Netlify parser -->
-<form name="kontakt" data-netlify="true" netlify-honeypot="bot-field" hidden>
-  <input type="hidden" name="form-name" value="kontakt">
-  <input name="cname"><input name="cemail">
-  <input name="cdate"><input name="cplan"><textarea name="cmsg"></textarea>
-</form>
+<!-- Hidden blueprints for Netlify parser (stay invisible) -->
+<div style="display:none !important;">
+  <form name="kontakt" netlify netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="kontakt">
+    <input name="cname"><input name="cemail"><input name="cdate"><input name="cplan"><textarea name="cmsg"></textarea>
+  </form>
 
-<form name="rsvp" data-netlify="true" netlify-honeypot="bot-field" hidden>
-  <input type="hidden" name="form-name" value="rsvp">
-  <input name="name"><input name="email"><input name="guests">
-  <textarea name="guest_names"></textarea>
-  <textarea name="allergies"></textarea>
-  <input name="kids">
-</form>
+  <form name="rsvp" netlify netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="rsvp">
+    <input name="name"><input name="email"><input name="guests">
+    <textarea name="guest_names"></textarea><textarea name="allergies"></textarea><input name="kids">
+  </form>
+</div>
+
 </body>
 </html>
