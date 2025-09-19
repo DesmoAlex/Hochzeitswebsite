@@ -1,0 +1,8 @@
+[build]
+  publish = "."
+
+# Für Single-Page-Apps / sauberes Routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
